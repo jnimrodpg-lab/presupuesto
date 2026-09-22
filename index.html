@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuestador Local</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
+        <h2 class="text-2xl font-bold mb-6 text-center text-indigo-600">Nuevo Presupuesto</h2>
+
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">1. Marca</label>
+            <select id="select-marca" class="w-full border-gray-300 rounded-md shadow-sm p-3 border bg-gray-50 text-lg">
+                <option value="">Selecciona una marca...</option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">2. Modelo</label>
+            <select id="select-modelo" disabled class="w-full border-gray-300 rounded-md shadow-sm p-3 border bg-gray-200 text-lg">
+                <option value="">Selecciona primero la marca...</option>
+            </select>
+            
+            <div id="resumen-variantes" class="hidden mt-3 p-3 bg-indigo-50 text-indigo-800 rounded-md text-sm">
+                <p><strong>Tallas:</strong> <span id="txt-tallas"></span></p>
+                <p><strong>Colores:</strong> <span id="txt-colores"></span></p>
+            </div>
+        </div>
+
+        <div id="seccion-cantidades" class="hidden mb-6 border-t pt-4">
+            <label class="block text-sm font-medium text-gray-700 mb-3">3. Distribución de Cantidad</label>
+            
+            <div class="flex space-x-2 mb-4">
+                <button id="btn-modo-basico" class="flex-1 bg-indigo-600 text-white py-2 rounded-md font-medium transition-colors">Básico</button>
+                <button id="btn-modo-detallado" class="flex-1 bg-gray-200 text-gray-700 py-2 rounded-md font-medium transition-colors">Detallado</button>
+            </div>
+
+            <div id="modo-basico" class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="font-medium">Blancos:</span>
+                    <input type="number" min="0" value="0" class="w-24 p-2 border border-gray-300 rounded text-center text-lg">
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-medium">Negros:</span>
+                    <input type="number" min="0" value="0" class="w-24 p-2 border border-gray-300 rounded text-center text-lg">
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-medium">Otros Colores:</span>
+                    <input type="number" min="0" value="0" class="w-24 p-2 border border-gray-300 rounded text-center text-lg">
+                </div>
+            </div>
+
+            <div id="modo-detallado" class="hidden space-y-3">
+                <!-- Inputs generados dinámicamente -->
+            </div>
+        </div>
+
+        <div class="flex space-x-3 mt-6">
+            <button id="btn-guardar" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded shadow-lg transition-colors">
+                Guardar en Presupuesto
+            </button>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
